@@ -1,0 +1,189 @@
+@mixin burger($translate) {
+  content: "";
+  height: 2px;
+  width: 100%;
+  display: flex;
+  background-color: var(--primary-color);
+  transform: translateY(#{$translate}px);
+}
+
+.header {
+  &__burger {
+    button {
+      span {
+        &:before {
+          @include burger(-9);
+        }
+        &:after {
+          @include burger(7);
+        }
+        height: 2px;
+        width: 100%;
+        background: var(--primary-color);
+      }
+      padding: 9px 0;
+      cursor: pointer;
+      border: none;
+      width: 32px;
+      display: none;
+      position: absolute;
+      flex-direction: column;
+      background: transparent;
+      top: 45px;
+      left: 109px;
+      transform: translateY(-50%);
+
+      @media only screen and (max-width: 1070px) {
+        display: flex;
+      }
+    }
+
+    width: 25px;
+    height: 25px;
+  }
+  &__ul {
+    &__li {
+      &__a {
+        &__logo {
+          width: 200px;
+          height: 60px;
+          z-index: 3;
+          margin: 24px;
+        }
+        display: flex;
+        justify-content: center;
+      }
+    }
+    &__version {
+      &__dropdown {
+        display: none;
+      }
+      &__seen {
+        span {
+          font-family: var(--secondary-font);
+          color: var(--third-color);
+          padding: 0px;
+          pointer-events: none;
+        }
+        &::after {
+          background-image: url(../assets/arrow.svg);
+          content: "";
+          background-repeat: no-repeat;
+          position: absolute;
+          top: 10px;
+          left: 44px;
+          width: 20px;
+          height: 20px;
+        }
+        position: relative;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        width: 56px;
+        line-height: 44px;
+      }
+      &--hover {
+      
+          display: flex;
+          flex-direction: column;
+          transition: var(--primary-transition);
+          overflow: visible;
+
+        // div {
+        //   display: none;
+        //   transition: var(--primary-transition);
+        // }
+      }
+      padding-bottom: 13px;
+
+      align-self: center;
+      width: 75px;
+      // pointer-events: none;
+    }
+    &__search {
+      input {
+        width: 100%;
+        height: 62px;
+        padding: 0 45px 0 30px;
+        border: 0;
+        z-index: 3;
+      }
+      &__a {
+        &__logo {
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          z-index: 3;
+          top: 20px;
+          right: 11px;
+        }
+      }
+      display: flex;
+      border-top: 1px solid rgba(0, 0, 0, 0.14);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+      position: relative;
+    }
+
+    &__menu {
+      &__css {
+        &__unseen {
+          li {
+            // &:hover {
+            //   background-color: lightgray;
+            //   padding-left: 5px;
+            // }
+            background-color: white;
+          }
+          display: none;
+        }
+         font-size: 13px;
+        line-height: 44px;
+      }
+      // &__css:hover {
+      //   ul {
+      //     display: flex;
+      //     flex-direction: column;
+      //     overflow: visible;
+      //     transition: var(--primary-transition);
+      //     background-color: lightgray;
+      //   }
+      // }
+      li {
+        &:hover {
+            background-color: lightgray;
+            transition: var(--primary-transition);
+          }
+        font-size: 13px;
+        line-height: 44px;
+      }
+    }
+    
+
+    width: 300px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(0, 0, 0, 0.14);
+
+    @media only screen and (max-width: 1070px) {
+      display: none;
+      transition: var(--secondary-transition);
+    }
+  }
+  p {
+    font-family: var(--primary-font);
+    color: var(--third-color);
+    font-size: var(--primary-size);
+    font-weight: 500;
+    padding: 0 30px;
+  }
+  a {
+    text-decoration: var(--text-decoration);
+    color: var(--secondary-color);
+    font-size: var(--primary-size);
+  }
+  position: relative;
+  display: flex;
+}
